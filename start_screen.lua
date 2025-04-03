@@ -11,7 +11,7 @@ function startLoad()
 end
 
 function startUpdate(gameState)
-    if gameState == 'paused' then
+    if gameState == 'levels' then
         state = 2
     end
     if gameState == 'started' then
@@ -41,7 +41,7 @@ function startUpdate(gameState)
         return 'started'
     end
     if state == 2 then
-        return 'paused'
+        return 'levels'
     end
 
 end
@@ -70,6 +70,6 @@ function startDraw()
 
     if state == 2 then
         love.graphics.setColor(1, 1, 1)
-        love.graphics.draw(love.graphics.newText(font, 'Paused'), 10, 10)
+        love.graphics.draw(love.graphics.newText(font, 'levels'), 10, 10)
     end
 end

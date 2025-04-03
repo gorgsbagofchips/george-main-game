@@ -1,6 +1,7 @@
 local love = require('love')
 local start_screen = require('start_screen')
 require('game')
+require('level_map')
 
 function love.load()
     startLoad() --loads the start menu
@@ -23,6 +24,12 @@ function love.update()
     if startUpdate() == 'started' then -- if the game is started, then start game update loop
         gameUpdate()
     end
+    if startUpdate() == 'levels' then
+        
+    end
+    if startUpdate() == 'menu' then
+        
+    end
     
 end
 
@@ -30,8 +37,8 @@ function love.draw()
     if startUpdate() == 'menu' then -- if the game is in menu state, then draw the menu, same for each state
         startDraw()
     end
-    if startUpdate() == 'paused' then 
-        love.graphics.setBackgroundColor(1,0,0)
+    if startUpdate() == 'levels' then 
+        levelsDraw()
     end
     if startUpdate() == 'started' then
         gameDraw()
